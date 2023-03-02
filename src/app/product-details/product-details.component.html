@@ -1,0 +1,22 @@
+<div class="card mb-3 mt-3">
+  <div class="row g-0">
+    <div class="col-md-4 d-flex justify-content-center">
+      <img [src]=[product.image]  class="img-fluid rounded-start text-center p-3 " width="250px" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="card-title">{{product.title}}</h2>
+        <h4 class="card-text" [ngClass]="{'text-success':product.count >0,'text-danger':product.count ==0}">
+          {{product.count | avalibale}}</h4>
+          <h5 class="card-title">{{product.description}}</h5>
+        <h4>{{product.price | currency : ' EGY '}}</h4>
+        <h5 class="card-title">rate : {{product.rating.rate}}</h5>
+
+        <div class="d-flex justify-content-between">
+          <p class="card-text">{{product.createdAt | date:'MMM YYYY'}}</p>
+          <button class="btn btn-success">add to card</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

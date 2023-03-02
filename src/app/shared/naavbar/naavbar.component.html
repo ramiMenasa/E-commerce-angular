@@ -1,0 +1,17 @@
+<nav class="navbar sticky-top bg-success d-flex justify-content-between">
+    <div class="container-fluid">
+        <div>
+        <a class="navbar-brand " routerLinkActive="text-light" routerLink="/" [routerLinkActiveOptions]="{exact: true}" >Products</a>
+        </div>
+        <div>
+            <a class="navbar-brand" routerLink="/cart" routerLinkActive="text-light" #rla="routerLinkActive">
+                <sub><fa-icon [icon]="cart"></fa-icon></sub>
+                <small class="text-danger" *ngIf="counter>0"><sup>{{counter}}</sup></small>
+            </a>
+
+            <a class="btn btn-outline-dark m-2" routerLinkActive="active-link" routerLink="/login" >Login</a>
+            <a class="btn btn-outline-dark  m-2" routerLinkActive="active-link" routerLink="/register" >Register</a>
+        </div>
+    </div>
+    
+</nav>

@@ -1,0 +1,99 @@
+<div class="container cntr rounded-4 shadow bg-white p-5">
+    <div class="row ">
+        <div class="col-lg-7">
+            <h1 class="bold">Sign up</h1>
+            <form class=" mt-5" action="./../../app.component.html" [formGroup]="registerForm" (ngSubmit)="handleSubmitForm()">
+                <div class="input-group ">
+                    <div class="input-group-text  bg-white border-start-0 border-top-0 border-end-0">
+                         <fa-icon [icon]="user"></fa-icon></div>
+                    <input type="text" class="form-control  bg-white border-start-0 border-top-0 border-end-0" 
+                        id="name" placeholder="Your Name" formControlName="name">
+                </div>
+                <div *ngIf="registerControl['name'].touched && registerControl['name'].invalid">
+                    <small class="text-danger" *ngIf="registerControl['name'].errors?.['required']">enter name </small>
+                    <small class="text-danger" *ngIf="registerControl['name'].errors?.['pattern']">enter name ex: tia bassem</small>
+
+                </div>
+
+                <div class="input-group mt-4">
+                    <div class="input-group-text  bg-white border-start-0 border-top-0 border-end-0"> 
+                        <fa-icon [icon]="email"></fa-icon></div>
+                    <input type="email" class="form-control  bg-white border-start-0 border-top-0 border-end-0" 
+                        id="email" placeholder="Your Email" formControlName="email" formControlName="email">
+                </div>
+                <div *ngIf="registerControl['email'].touched && registerControl['email'].invalid">
+                    <small class="text-danger" *ngIf="registerControl['email'].errors?.['required']">enter email</small>
+                    <small class="text-danger" *ngIf="registerControl['email'].errors?.['email']">enter email ex: tiaBassem@gmail(or yahoo).com</small>
+
+                </div>
+
+                <div class="input-group mt-4">
+                    <div class="input-group-text  bg-white border-start-0 border-top-0 border-end-0">
+                         <fa-icon [icon]="user"></fa-icon></div>
+                    <input type="text" class="form-control  bg-white border-start-0 border-top-0 border-end-0" 
+                        id="userName" placeholder="Your User Name" formControlName="userName">
+                </div>
+                <div *ngIf="registerControl['userName'].touched && registerControl['userName'].invalid">
+                    <small class="text-danger" *ngIf="registerControl['userName'].errors?.['required']">enter user name </small>
+                    <small class="text-danger" *ngIf="registerControl['userName'].errors?.['pattern']">enter user name ex: tiaBassem (at least 8 max 20 at length , no space , no numbers and no symbols )  </small>
+
+                </div>
+
+
+                <div class="input-group mt-4">
+                    <div class="input-group-text  bg-white border-start-0 border-top-0 border-end-0"> 
+                        <fa-icon [icon]="pass"></fa-icon></div>
+                    <input type="password" class="form-control  bg-white border-start-0 border-top-0 border-end-0"
+                        required id="password" placeholder="Your Password" formControlName="password">
+                </div>
+                <div *ngIf="registerControl['password'].touched && registerControl['password'].invalid">
+                    <small class="text-danger" *ngIf="registerControl['password'].errors?.['required']">enter password </small>
+                    <small class="text-danger" *ngIf="registerControl['password'].errors?.['pattern']">password must have atleast one number , small lettr , upper letter ,symbol and length between [8,32] </small>
+
+                </div>
+
+
+                <div class="input-group mt-4">
+                    <div class="input-group-text  bg-white border-start-0 border-top-0 border-end-0">
+                        <fa-icon [icon]="repass"></fa-icon>
+                    </div>
+                    <input type="password" class="form-control  bg-white border-start-0 border-top-0 border-end-0"
+                        required id="rePassword" placeholder="Repeat Your Password" formControlName="rePassword">
+                </div>
+                <div *ngIf="registerControl['rePassword'].touched && registerControl['rePassword'].invalid">
+                    <small class="text-danger" *ngIf="registerControl['rePassword'].errors?.['required']">enter confirm password </small>
+                    <small class="text-danger" *ngIf="registerControl['rePassword'].errors?.['pattern']">confirm password must have atleast one number , small lettr , upper letter ,symbol and length between [8,32] </small>
+                    
+                </div>
+                <small class="text-danger"  *ngIf="registerControl['rePassword'].touched &&  registerForm.errors && registerForm.errors['invalid']">
+                    Password does not match
+                </small>
+               
+
+
+                <div class="form-check mb-4 mt-4">
+                    <input class="form-check-input" type="checkbox" required id="checkTerminas">
+                    <label class="form-check-label" for="checkTerminas">
+                        I agree all statements in <a class="card-link text-dark" href="#"> Terms of service </a>
+                    </label>
+                    <div class="invalid-feedback">
+                        should to check Terms
+                    </div>
+
+                </div>
+
+                <input type="submit" routerLink="/" class="btn  btn-lg btn-dark shadow ps-4 pe-4"  [disabled]="registerForm.invalid" value="Register">
+            </form>
+
+        </div>
+        <div class="col-lg-5">
+            <div class="text-center">
+                <img class="mb-0" src="./../../assets/images/image_processing20210419-9506-n2e2wc.png" width="100%" alt="">
+            </div>
+            <div class="text-center">
+                <a class="card-link text-dark bold" routerLink="/login"> I am already member </a>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="container cntr rounded-4 shadow bg-white p-5">
+    <div class="row ">
+        <div class="col-lg-5">
+            <div class="text-center">
+                <img class=" mb-0" src="./../../assets/images/image_processing20210419-9506-n2e2wc.png" width="100%"
+                    alt="">
+            </div>
+            <div class="text-center mt-5 bold">
+                <a class="card-link text-dark " routerLink="/register"> Create an account </a>
+            </div>
+
+        </div>
+        <div class="col-lg-7">
+            <h1 class="bold">Sign in</h1>
+            <form class=" mt-5 "  #loginForm="ngForm" (ngSubmit)="handleFormSubmit(loginForm)">
+
+                <div class="input-group ">
+                    <div class="input-group-text  bg-white border-start-0 border-top-0 border-end-0">
+                        <fa-icon [icon]="user"></fa-icon>
+                    </div>
+                    <input type="email" class="form-control  bg-white border-start-0 border-top-0 border-end-0"
+                        id="email" placeholder="Your email"  name="email" ngModel #email="ngModel" email="true" pattern="^[A-z][A-z]{2,}[0-9]*@(gmail|yahoo)(.com|.eg|.edu)$" required />
+                </div>
+                <div *ngIf="email.touched && email.invalid">
+                    <small class="text-danger" *ngIf="email.errors?.['required']">Please enter an email.</small>
+                    <small class="text-danger" *ngIf="email.errors?.['email']">format wrong </small>
+                    <small class="text-danger" *ngIf="email.errors?.['pattern']">Format isn't correct ex: name@gmail.com </small>
+
+
+                </div>
+
+
+                <div class="input-group mt-4 ">
+                    <div class="input-group-text  bg-white border-start-0 border-top-0 border-end-0">
+                        <fa-icon [icon]="pass"></fa-icon>
+                    </div>
+                    <input type="password" class="form-control  bg-white border-start-0 border-top-0 border-end-0"
+                        id="password" placeholder="Your Password" name="password" ngModel #password="ngModel" required>
+                </div>
+                <div  *ngIf="password.touched && password.invalid">
+                    <small class="text-danger" *ngIf="password.errors?.['required']">Please enter a password.</small>
+                </div>
+
+
+
+                <div class="form-check mt-4 mb-4">
+                    <input class="form-check-input" type="checkbox" value="" id="checkTerminas">
+                    <label class="form-check-label text-black" for="checkTerminas">
+                        Remember me
+                    </label>
+
+                </div>
+
+                <button type="submit" routerLink="/" class="btn btn-lg btn-outline-dark shadow ps-4 pe-4" [disabled]="loginForm.invalid"> Login </button>
+            </form>
+
+        </div>
+
+    </div>
+</div>

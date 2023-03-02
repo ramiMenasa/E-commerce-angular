@@ -1,0 +1,10 @@
+<div class="card h-100 " >
+    <img  [src]="oneProduct.image" class="card-img-top p-3" height="250px" alt="sora">
+    <div class="card-body">
+      <a class="nav-link " [routerLink]="['product-details', oneProduct.id]"> <h5 class=" card-title">{{oneProduct.title}}</h5></a>
+      <h5>{{oneProduct.price | currency : ' EGY  '}}</h5>      
+      <div class="d-flex justify-content-between">
+        <button  class="btn btn-success" (click)="addProductToCart(oneProduct.id)">add to card</button>
+      </div>
+    </div>
+  </div>
